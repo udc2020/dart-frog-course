@@ -1,5 +1,12 @@
 import 'package:dart_frog/dart_frog.dart';
 
-Response onRequest(RequestContext context) {
-  return Response(body: 'Welcome to Dart Frog!');
+// Route @GET "/"
+Future<Response> onRequest(RequestContext context)async {
+  final request = context.request;
+
+  //returning all data from body
+  final body = await request.json();
+
+
+  return Response.json(body: body);
 }
