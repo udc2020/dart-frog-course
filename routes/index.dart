@@ -1,12 +1,10 @@
+
 import 'package:dart_frog/dart_frog.dart';
+import 'package:dart_frog_course/models/user.dart';
 
 // Route @GET "/"
-Future<Response> onRequest(RequestContext context)async {
-  final request = context.request;
+Future<Response> onRequest(RequestContext context) async {
+  final users = context.read<List<User>>();
 
-  //returning all data from body
-  final body = await request.json();
-
-
-  return Response.json(body: body);
+  return Response.json(body: users);
 }
